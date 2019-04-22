@@ -1,9 +1,9 @@
-version: '3.5'
+version: '3.7'
 
 services:
 
   master:
-    image: mjhea0/spark:latest
+    image: mjhea0/spark:2.4.1
     command: bin/spark-class org.apache.spark.deploy.master.Master -h master
     hostname: master
     environment:
@@ -17,7 +17,7 @@ services:
       - 8080:8080
 
   worker:
-    image: mjhea0/spark:latest
+    image: mjhea0/spark:2.4.1
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
     hostname: worker
     environment:
